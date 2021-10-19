@@ -2,6 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const { google } = require("googleapis");
 const axios = require("axios");
+const exphps = require("express-handlebars");
+
+
 const app = express();
 const port = 3000;
 
@@ -33,13 +36,14 @@ app.get("/search-with-googleapis", async (req, res, next) => {
     const searchQuery = req.query.search_query;
     //   const url = `${baseApiUrl}/search?key=${apiKey}&type=video&part=snippet&q=${searchQuery}`;
     //   const response = await axios.get(url);
-    const response = await youtube.playlists.list({
+    const response = await youtube.video.list({
       channelId: "UCKuqgP4hJjZOOkFxf6jf21w",
       part: "snippet",
       q: searchQuery,
       type: "playlist",
       maxResults: 25,
     });
+    // UCKuqgP4hJjZOOkFxf6jf21w
     // const titles = response.data.items.map((item) => item.snippet.title);
     res.send(response.data);
   } catch (err) {
