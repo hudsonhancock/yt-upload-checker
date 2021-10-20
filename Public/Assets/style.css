@@ -38,9 +38,9 @@ img{
     background: linear-gradient(0deg, #faf300, #d7187e, #33afee);
     background-size: 600% 600%;
 
-    -webkit-animation: AnimationName .5s ease;
-    -moz-animation: AnimationName .5s ease;
-    animation: AnimationName .5s ease;
+    -webkit-animation: AnimationName 4s ease;
+    -moz-animation: AnimationName 4s ease;
+    animation: AnimationName 4s ease;
 }
 
 @-webkit-keyframes AnimationName {
