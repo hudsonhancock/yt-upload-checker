@@ -3,10 +3,14 @@ const dotenv = require("dotenv").config();
 const { google } = require("googleapis");
 const axios = require("axios");
 const exphps = require("express-handlebars");
+const path = require('path');
 
 
 const app = express();
 const port = 3000;
+
+app.use(express.static('public'))
+app.use('/', express.static(__dirname));
 
 const apiKey = process.env.API_KEY;
 const baseApiUrl = "https://www.googleapis.com/youtube/v3";
@@ -16,7 +20,7 @@ const youtube = google.youtube({
 });
 
 app.get("/", (req, res) => {
-  res.send("This works");
+  res.sendFile("index.html");
 });
 
 app.get("/search", async (req, res, next) => {
